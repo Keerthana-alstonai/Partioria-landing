@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Partyoria Design System - Celebration & Event Platform Theme
+All colors MUST be HSL for proper theming.
+*/
+
+@layer base {
+  :root {
+    /* Core Background & Text */
+    --background: 0 0% 100%;
+    --foreground: 260 15% 15%;
+    
+    /* Primary Brand - Deep Party Purple */
+    --primary: 270 70% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 270 60% 55%;
+    --primary-glow: 270 80% 65%;
+    
+    /* Secondary - Celebration Gold */
+    --secondary: 45 90% 60%;
+    --secondary-foreground: 260 15% 15%;
+    --secondary-light: 45 85% 70%;
+    
+    /* Accent - Party Pink */
+    --accent: 320 85% 65%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 320 75% 75%;
+    
+    /* Supporting Colors */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 5% 45%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 15% 15%;
+    
+    /* Interactive States */
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 270 70% 35%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Party Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(270 70% 35%), hsl(320 85% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(270 60% 55%), hsl(45 90% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 85% 65%), hsl(270 80% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(240 5% 96%), hsl(0 0% 100%));
+    
+    /* Party Effects */
+    --shadow-glow: 0 0 40px hsl(270 80% 65% / 0.4);
+    --shadow-card: 0 10px 30px hsl(270 70% 35% / 0.1);
+    --shadow-elegant: 0 20px 40px hsl(270 70% 35% / 0.15);
+    
+    /* Glass Effects */
+    --glass-bg: 270 100% 99% / 0.1;
+    --glass-border: 270 50% 80% / 0.2;
+    --gradient-glass: linear-gradient(135deg, hsl(270 100% 99% / 0.1), hsl(280 100% 99% / 0.05));
+    --shadow-glass: 0 8px 32px hsl(270 50% 60% / 0.15);
+    --gradient-primary: linear-gradient(135deg, hsl(270 70% 65%), hsl(280 80% 75%));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 260 15% 8%;
+    --foreground: 0 0% 95%;
+    --card: 260 15% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 260 15% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 270 80% 65%;
+    --primary-foreground: 260 15% 8%;
+    --secondary: 45 80% 50%;
+    --secondary-foreground: 260 15% 8%;
+    --muted: 260 15% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 320 75% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 260 15% 20%;
+    --input: 260 15% 20%;
+    --ring: 270 80% 65%;
+    
+    /* Dark mode glass effects */
+    --glass-bg: 270 50% 10% / 0.3;
+    --glass-border: 270 50% 50% / 0.2;
+    --gradient-glass: linear-gradient(135deg, hsl(270 50% 10% / 0.3), hsl(280 50% 10% / 0.1));
+    --shadow-glass: 0 8px 32px hsl(270 50% 10% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Party Button Variants */
+  .btn-party {
+    @apply bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-glow transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-party-outline {
+    @apply border-2 border-primary text-primary bg-transparent font-semibold py-3 px-8 rounded-xl hover:bg-primary hover:text-white transition-all duration-300;
+  }
+  
+  .btn-gold {
+    @apply bg-gradient-to-r from-secondary-light to-secondary text-foreground font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Card Effects */
+  .card-party {
+    @apply bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-primary-light/10 to-accent-light/10 border border-primary/20 rounded-2xl p-6 backdrop-blur-sm;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent;
+  }
+  
+  /* Animation Classes */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s infinite;
+  }
+  
+  /* Glass Effect Components */
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-input {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(8px);
+    border: 1px solid hsl(var(--glass-border));
+    transition: var(--transition-smooth);
+  }
+  
+  .glass-input:focus {
+    background: hsl(var(--background) / 0.8);
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+  }
+  
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsl(270 80% 65% / 0.3); }
+  to { box-shadow: 0 0 30px hsl(270 80% 65% / 0.6); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Party Decorative Elements */
+@layer utilities {
+  .bg-party-pattern {
+    background-image: radial-gradient(circle at 20% 50%, hsl(270 80% 65% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, hsl(320 85% 65% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 80%, hsl(45 90% 60% / 0.1) 0%, transparent 50%);
+  }
+  
+  .bg-celebration {
+    background: var(--gradient-hero);
+  }
+  
+  .text-party-gradient {
+    @apply text-gradient;
+  }
+}
